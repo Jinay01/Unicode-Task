@@ -1,0 +1,15 @@
+{% extends 'attempt1/main.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <h1 class="heading">Enter your numbers</h1>
+</div>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{formset.management_form}}
+    {{form}}
+    <input class='btn btn-dark' type="submit" name="submit">
+</form>
+
+{% endblock %}

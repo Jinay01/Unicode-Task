@@ -1,0 +1,14 @@
+{% extends 'attempt1/main.html' %}
+
+{% block content %}
+
+<h1>Api form</h1>
+
+<form action='' method='POST'>
+    {% csrf_token %}
+    {{ formset.mangement_form }}
+    {{form}}
+    <input class='btn-outline-primary' type="submit" name="submit">
+</form>
+
+{% endblock %}

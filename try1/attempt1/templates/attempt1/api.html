@@ -3,13 +3,15 @@
 {% block content %}
 
 <h1>List of repository</h1>
-<p>{{repository}}</p>
+{{repository}} : {{repository_count}}
 
 <h1>List of followers</h1>
-{{followers}}
+{{followers}} : {{followers_count}}
 
 <h1>List of following</h1>
-{{following}}
+{{following}} : {{following_count}}<br>
+
+
 
 
 {% endblock %}

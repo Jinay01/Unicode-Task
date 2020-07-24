@@ -6,4 +6,5 @@ from .models import *
 
 
 admin.site.register(Newnums),
-admin.site.register(Apiinput)
+admin.site.register(Apiinput),
+# admin.site.register(Usercheck),

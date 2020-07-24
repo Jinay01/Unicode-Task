@@ -12,4 +12,27 @@ class Takenums(ModelForm):
 class Apiform(ModelForm):
     class Meta():
         model = Apiinput
-        fields = '__all__'
+        fields = ['username']
+
+
+# class Usercount(ModelForm):
+#     class Meta():
+#         model = Usercheck
+#         fields = '__all__'
+
+class Repofinder(ModelForm):
+    class Meta():
+        model = Apiinput
+        fields = ['repo_count']
+
+
+class Followersfinder(ModelForm):
+    class Meta():
+        model = Apiinput
+        fields = ['followers_count']
+
+
+class Followingfinder(ModelForm):
+    class Meta():
+        model = Apiinput
+        fields = ['following_count']

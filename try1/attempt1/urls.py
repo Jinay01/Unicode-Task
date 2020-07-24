@@ -7,4 +7,10 @@ urlpatterns = [
     path('result', views.binary, name='result'),
     path('apiform', views.apiform, name='apiform'),
     path('api', views.api, name='api'),
+    path('userfinder', views.userfinder, name='userfinder'),
+    path('repofinder', views.repofinder, name='repofinder'),
+    path('followersfinder', views.followersfinder, name='followersfinder'),
+    path('followingfinder', views.followingfinder, name='followingfinder'),
+    path('top', views.top, name='top'),
+
 ]

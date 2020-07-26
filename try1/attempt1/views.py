@@ -20,18 +20,20 @@ def binaryform(request):
         form = Takenums(request.POST)
         if form.is_valid:
             form.save()
-            return redirect('result')
+            numb1 = form.cleaned_data['numb1']
+            numb2 = form.cleaned_data['numb2']
+            return binary(request, numb1, numb2)
 
     context = {'form': form}
     return render(request, 'attempt1/form.html', context)
 
 
-def binary(request):
-    numb = Newnums.objects.last()
-    n = numb.numb1
-    m = numb.numb2
+def binary(request, numb1, numb2):
+    # numb = Newnums.objects.last()
+    # n = numb.numb1
+    # m = numb.numb2
 
-    dict = solution.solution(n, m)
+    dict = solution.solution(numb1, numb2)
 
     context = {'dict': dict}
     return render(request, 'attempt1/result.html', context)
@@ -74,7 +76,7 @@ def api(request, user):
     repository_count = 0
     for i in repository:
         repository_count += 1
-    x.repo_count = repository_count
+    x.repo_count = repository_count     # Can also use .count() method for this
     x.save()
     # API FOR LIST OF FOLLOWERS
     response = requests.get(
@@ -87,7 +89,7 @@ def api(request, user):
     followers_count = 0
     for i in followers:
         followers_count += 1
-    x.followers_count = followers_count
+    x.followers_count = followers_count    # Can also use .count() method for this
     x.save()
 
     # API FOR LIST OF FOLLOWING
@@ -101,7 +103,7 @@ def api(request, user):
     following_count = 0
     for i in following:
         following_count += 1
-    x.following_count = following_count
+    x.following_count = following_count   # Can also use .count() method for this
     x.save()
 
     context = {'response': response,
@@ -173,10 +175,10 @@ def top(request):
     high2 = []
     high3 = []
     i = Apiinput.objects.all()
-    for b in i:  # This steps are done on purpose if 2 have same value to uske liye difficult to explain
+    for b in i:  # This steps are done on purpose if 2 of them have same value to uske liye difficult to explain
         lis.append(b.counter)  # But donot remove this coz ye kaamka hai
-    lis.sort()
-    for a in lis:
+    lis.sort()  # Did this for some reason that i might not remember then but this is correct
+    for a in lis:  # Sets are imp to avoid repitation
         se.add(a)
     for c in se:
         high.append(c)

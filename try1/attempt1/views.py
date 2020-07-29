@@ -27,6 +27,24 @@ def binaryform(request):
     context = {'form': form}
     return render(request, 'attempt1/form.html', context)
 
+# Without using any django forms pure html form
+
+
+def no_django_form(request):
+    if request.method == "POST":
+        alldata = request.POST
+        numb1 = alldata.get("num1")
+        numb2 = alldata.get("num2")
+
+        return no_django_result(request, numb1, numb2)
+    context = {}
+    return render(request, 'attempt1/nodjango.html', context)
+
+
+def no_django_result(request, num1, num2):
+    dict = solution.solution(num1, num2)
+    return HttpResponse(json.dumps(dict))
+
 
 def binary(request, numb1, numb2):
     # numb = Newnums.objects.last()

@@ -12,5 +12,7 @@ urlpatterns = [
     path('followersfinder', views.followersfinder, name='followersfinder'),
     path('followingfinder', views.followingfinder, name='followingfinder'),
     path('top', views.top, name='top'),
-
+    path('nodjango', views.no_django_form, name='nodjango'),
+    path('no_django_result/<int:num1>/<int:num2>',
+         views.no_django_result, name='no_django_result'),
 ]

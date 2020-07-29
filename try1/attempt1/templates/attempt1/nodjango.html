@@ -1,0 +1,20 @@
+{% extends 'attempt1/main.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <h1 class="heading">Enter your numbers</h1>
+</div>
+
+<!-- no django form method using post can also be done using get
+    in get no csrf_token required
+    nd in get vo bakwas number nd stuff nahi aayega -->
+<form action='' method="POST">
+    <!-- {% csrf_token %} use for post not req for get -->
+    {% csrf_token %}
+    <label for="num1">Enter num1</label>
+    <input type="int" name='num1'>
+    <label for="num2">Enter num2</label>
+    <input type="int" name='num2'>
+    <input class='btn btn-dark' type="submit" name="submit">
+</form>
+{% endblock %}

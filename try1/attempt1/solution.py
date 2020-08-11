@@ -4,7 +4,7 @@ def solution(n, m):
     dict = {}
     for i in range(n, m):
         z = list(bin(i))
-        p = z[2:]    # Just to remove the characters till b coz they are uselesss
+        p = z[2:]    # Just to remove the characters till b coz they are uselesss, not useful for negative numbers coz usme negative sign aata hai shayad
         if i == 0:  # did this for some reason that i might not remember then
             dict[0] = 'false'
         elif i == 1:

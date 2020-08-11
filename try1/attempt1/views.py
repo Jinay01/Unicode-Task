@@ -148,7 +148,10 @@ def repofinder(request):
             i = Apiinput.objects.filter(repo_count=repo)
             for x in i:
                 li.append(x.username)
-            user = li
+            if len(li) == 0:
+                user = 'NO USER FOUND'
+            else:
+                user = li
     context = {'form': form, 'user': user}
     return render(request, 'attempt1/repofinder.html', context)
 
@@ -164,7 +167,10 @@ def followersfinder(request):
             i = Apiinput.objects.filter(followers_count=repo)
             for x in i:
                 li.append(x.username)
-            user = li
+            if len(li) == 0:
+                user = 'NO USER FOUND'
+            else:
+                user = li
     context = {'form': form, 'user': user}
     return render(request, 'attempt1/followersfinder.html', context)
 
@@ -180,7 +186,10 @@ def followingfinder(request):
             i = Apiinput.objects.filter(following_count=repo)
             for x in i:
                 li.append(x.username)
-            user = li
+            if len(li) == 0:
+                user = 'NO USER FOUND'
+            else:
+                user = li
     context = {'form': form, 'user': user}
     return render(request, 'attempt1/followingfinder.html', context)
 
